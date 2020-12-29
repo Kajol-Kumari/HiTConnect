@@ -1,0 +1,22 @@
+.navbar-dark {
+  background-color: #1B2431;
+  height: 60px;
+  margin: auto;
+  /* text-align: center; */
+  /* justify-content: center;
+  text-align: center;
+  vertical-align: middle; */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.jumbotron {
+  padding: 70px 30px 70px 30px;
+  margin: 0px auto;
+  background: #016795;
+  color: floralwhite;
+  text-align: center;
+}
