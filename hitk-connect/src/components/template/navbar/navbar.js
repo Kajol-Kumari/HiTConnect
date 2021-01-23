@@ -1,9 +1,9 @@
 import React, {Fragment, useState} from "react";
 import {NavLink, Link} from "react-router-dom";
 
-import "./header.css";
+import "./navbar.css";
 
-const Header = () => {
+const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
@@ -88,4 +88,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

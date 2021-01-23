@@ -1,13 +1,21 @@
-import { BrowserRouter } from 'react-router-dom';
+import { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import './app.css';
-import Main from "./components/main/main";
+import Home from './components/home/home';
+import Navbar from './components/template/navbar/navbar';
 function App() {
   return (
-    <BrowserRouter>
-    <div className="App">
-      <Main/>
-    </div>
-    </BrowserRouter>
+    <Fragment>
+      <div className="Container">
+        <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+        </Switch>
+        </Router>
+      </div>
+    </Fragment>
   );
 }
 
