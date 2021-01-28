@@ -1,6 +1,6 @@
 .navbar-div {
-    background: #fff;
-    height: 60px;
+    background: transparent;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@
   }
   
   .nav-links {
-    color: white;
+    color: #125181;
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
@@ -122,8 +122,8 @@
     }
   
     .nav-menu.active {
-      background-color: #242222;
-      background-color: #0a183d;
+      /* background-color: #242222; */
+      /* background-color: #0a183d; */
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
@@ -159,7 +159,7 @@
     }
   
     .fa-times {
-      color: #fff;
+      color: #125181;
       font-size: 2rem;
     }
   
@@ -172,7 +172,7 @@
       width: 80%;
       background: #1888ff;
       text-decoration: none;
-      color: #fff;
+      color: #125181;
       font-size: 1.5rem;
     }
   
@@ -186,7 +186,7 @@
       font-size: 18px;
       cursor: pointer;
       background-color: transparent;
-      color: #fff;
+      color: #125181;
       border-radius: 4px;
       border: 2px solid #fc0254;
     }

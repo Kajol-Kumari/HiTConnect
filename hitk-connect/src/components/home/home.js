@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
+import Header from '../template/header/header';
 import './home.css';
 
 export default class Home extends Component {
+ 
     render() {
         return (
+            <div>
             <div className="home-container">
-                <img src="./images/home_background.png" width="100" alt="background" />
+            <Header />
+                <p className="hitconnect-moto" >Collaborate! Learn! Grow!!</p>
             </div>
+            </div>
+            
         )
     }
 }

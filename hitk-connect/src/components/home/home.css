@@ -1,0 +1,24 @@
+.home-container {
+    background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Y29sbGVnZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.hitconnect-moto{
+    justify-content: center; 
+    /* vertical-align: middle; */
+    align-self: center;
+    display: flex;
+    text-align: center;
+    font-weight: bold;
+    color:#125181;
+    font-size: 20px;
+    /* try this once!! */
+    /* margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+}
