@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import {Switch,Router,Route, withRouter } from 'react-router-dom'
 import Home from '../home/home';
-import Header from '../template/header/header';
 import Footer from '../template/footer/footer';
-
+import Login from '../auth/login/login';
+import ClubsMenu from '../clubs-menu/clubs-menu';
 class Main extends Component {
+    constructor(props)
+    {
+        super(props);
+    }
     render() {
+         
+        
         return (
-            <div>
-                {/* <Header /> */}
-                 <Home /> 
-                <Footer/> 
+            <div className="Container">
+             
+              <Switch>
+                <Route exact path="/" component={Home}></Route>
+                <Route exact path="/login" component={Login}></Route>
+                {/* <Route exact path='/club-menu' component={() => <ClubsMenu clubs={CLUBS} />} /> */}
+              </Switch>
             </div>
+          
         );
     }
 }

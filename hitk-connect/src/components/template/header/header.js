@@ -34,7 +34,7 @@ const Header = () => {
           <li className="nav-item">
             <NavLink
               activeClassName="active-link"
-              to="/about-us"
+              to="/clubs-menu"
               className="nav-links"
               onClick={closeMobileMenu}
               exact
@@ -80,7 +80,7 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        <Link to="/admin">
+        <Link to="/login">
           <button className="nav-login-button">Login/Signup</button>
         </Link>
       </nav>
