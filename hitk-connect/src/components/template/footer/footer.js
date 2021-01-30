@@ -23,11 +23,11 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="/broadcasts">Broadcasts</a>
+                <a href="/broadcasts">Clubs</a>
               </li>
 
               <li>
-                <a href="/resources">Resources</a>
+                <a href="/resources">Blogs</a>
               </li>
 
               <li>

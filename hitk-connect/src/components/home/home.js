@@ -6,11 +6,9 @@ export default class Home extends Component {
  
     render() {
         return (
-            <div>
             <div className="home-container">
             <Header />
                 <p className="hitconnect-moto" >Collaborate! Learn! Grow!!</p>
-            </div>
             </div>
             
         )

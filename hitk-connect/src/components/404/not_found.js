@@ -1,6 +1,6 @@
 import React from "react";
 import "./not_found.css";
-import { Button2 } from "../util/button/button";
+import { Button2 } from "../template/button/button";
 
 const NotFound = () => {
   return (

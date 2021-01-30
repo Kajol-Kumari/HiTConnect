@@ -87,10 +87,6 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Login = () => {
-  //state for showing and hiding password
-  // const [showPass, setShowPass] = useState(false);
-
-  // const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -192,7 +188,7 @@ const Login = () => {
                 onClick={handleLogin}
                 disabled={state.isButtonDisabled}
               >
-                LogIn
+                Sign In
               </button>
             </div>
           </div>

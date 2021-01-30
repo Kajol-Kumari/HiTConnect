@@ -80,7 +80,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <Link to="/admin">
+        <Link to="/login">
           <button className="nav-login-button">Login/Signup</button>
         </Link>
       </nav>
