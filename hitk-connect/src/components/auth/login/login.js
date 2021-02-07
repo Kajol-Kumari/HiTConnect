@@ -181,6 +181,9 @@ const Login = () => {
               />
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
+            <div className="login-input" style={{ textAlign: "center" , marginTop: "-20px"}}>
+              Don't have an account? <a href="/signup">Sign Up</a> here!!
+            </div> <br />
             <div className="login-input" style={{ textAlign: "center" }}>
               <button
                 id="btn"

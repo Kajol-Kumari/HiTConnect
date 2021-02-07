@@ -1,5 +1,5 @@
-import React, {Fragment, useState} from "react";
-import {NavLink, Link} from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 import "./header.css";
 
@@ -11,7 +11,7 @@ const Header = () => {
   const closeMobileMenu = () => setIsNavOpen(false);
   return (
     <Fragment>
-      <nav className="navbar-div">
+      <nav className="header-div">
         <NavLink to="/" className="navbar-logo">
           HITConnect
         </NavLink>
@@ -19,35 +19,35 @@ const Header = () => {
           <i className={isNavOpen ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
         <ul className={isNavOpen ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
+          <li className="header-item">
             <NavLink
               activeClassName="active-link"
               to="/"
-              className="nav-links"
+              className="header-links"
               onClick={closeMobileMenu}
               exact
             >
               Home
             </NavLink>
           </li>
-          <li className="nav-item partition">|</li>
-          <li className="nav-item">
+          <li className="header-item header-partition">|</li>
+          <li className="header-item">
             <NavLink
               activeClassName="active-link"
               to="/clubs-menu"
-              className="nav-links"
+              className="header-links"
               onClick={closeMobileMenu}
               exact
             >
               Clubs
             </NavLink>
           </li>
-          <li className="nav-item partition">|</li>
-          <li className="nav-item">
+          <li className="header-item header-partition">|</li>
+          <li className="header-item">
             <NavLink
               activeClassName="active-link"
               to="/resources"
-              className="nav-links"
+              className="header-links"
               onClick={closeMobileMenu}
               exact
             >
@@ -55,24 +55,22 @@ const Header = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item partition">|</li>
-          <li
-            className="nav-item"
-          >
+          <li className="header-item header-partition">|</li>
+          <li className="header-item">
             <NavLink
               activeClassName="active-link"
-              to="/broadcasts"
-              className="nav-links"
+              to="/notice-board"
+              className="header-links"
               onClick={closeMobileMenu}
               exact
             >
               Notice Board
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="header-item">
             <Link
-              to="/admin"
-              className="nav-links-mobile"
+              to="/login"
+              className="header-links-mobile"
               onClick={closeMobileMenu}
               exact
             >
