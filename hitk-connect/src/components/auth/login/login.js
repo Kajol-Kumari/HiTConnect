@@ -154,7 +154,7 @@ const Login = () => {
           <div className="inside-card">
             <div className="login-input">
               <input
-                autocomplete="off"
+                autoComplete="off"
                 error={state.isError}
                 id="username"
                 type="email"
@@ -163,7 +163,7 @@ const Login = () => {
                 placeholder="Username"
                 onChange={handleUsernameChange}
                 onKeyPress={handleKeyPress}
-                class="inputLogin"
+                className="inputLogin"
               />
               <i className="fas fa-user"></i>
             </div>
@@ -177,7 +177,7 @@ const Login = () => {
                 placeholder="Password"
                 onChange={handlePasswordChange}
                 onKeyPress={handleKeyPress}
-                class="inputLogin"
+                className="inputLogin"
               />
               <i className="far fa-eye" id="togglePassword"></i>
             </div>

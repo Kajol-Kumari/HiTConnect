@@ -34,7 +34,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               activeClassName="active-link"
-              to="/about-us"
+              to="/club-menu"
               className="nav-links"
               onClick={closeMobileMenu}
               exact
@@ -71,7 +71,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="/admin"
+              to="/login"
               className="nav-links-mobile"
               onClick={closeMobileMenu}
               exact

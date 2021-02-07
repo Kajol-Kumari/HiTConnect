@@ -149,21 +149,36 @@ const Signup = () => {
         />
       </div>
       <div className="signup-form child2">
-        <div className="login-card">
-          <h1 className="card-heading">Welcome Back</h1>
+        <div className="signup-card">
+          <h1 className="card-heading">Welcome!</h1>
           <div className="inside-card">
             <div className="signup-input">
               <input
-                autocomplete="off"
+                autoComplete="off"
                 error={state.isError}
-                id="username"
+                id="email"
                 type="email"
                 required="required"
-                name="username"
-                placeholder="Username"
+                name="email"
+                placeholder="Email"
                 onChange={handleUsernameChange}
                 onKeyPress={handleKeyPress}
-                class="inputLogin"
+                className="inputSignup"
+              />
+              <i className="fas fa-envelope"></i>
+            </div>
+            <div className="signup-input">
+              <input
+                autoComplete="off"
+                error={state.isError}
+                id="name"
+                type="text"
+                required="required"
+                name="username"
+                placeholder="Name"
+                onChange={handleUsernameChange}
+                onKeyPress={handleKeyPress}
+                className="inputSignup"
               />
               <i className="fas fa-user"></i>
             </div>
@@ -177,7 +192,21 @@ const Signup = () => {
                 placeholder="Password"
                 onChange={handlePasswordChange}
                 onKeyPress={handleKeyPress}
-                class="inputLogin"
+                className="inputSignup"
+              />
+              <i className="far fa-eye" id="togglePassword"></i>
+            </div>
+            <div className="signup-input">
+              <input
+                error={state.isError}
+                id="confirm-password"
+                required="required"
+                name="confirm-password"
+                type="password"
+                placeholder="Confirm Password"
+                onChange={handlePasswordChange}
+                onKeyPress={handleKeyPress}
+                className="inputSignup"
               />
               <i className="far fa-eye" id="togglePassword"></i>
             </div>
