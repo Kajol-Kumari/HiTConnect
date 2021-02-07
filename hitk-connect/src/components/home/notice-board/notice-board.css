@@ -1,0 +1,26 @@
+.notice-board-div {
+    height: 400px;
+    display: flex;
+    background-color: #016795;
+}
+
+.notice-board-img {
+    width: 35%;
+    padding-top: 12%;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    /* top: 50%; */
+}
+
+.notice-board-card{
+    width: 60%;
+    margin: 8px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.notice-board-content {
+    padding: 2rem;
+}

@@ -10,7 +10,6 @@ export default class Home extends Component {
             <Header />
                 <p className="hitconnect-moto" >Collaborate! Learn! Grow!!</p>
             </div>
-            
         )
     }
 }
