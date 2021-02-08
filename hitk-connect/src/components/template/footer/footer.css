@@ -2,8 +2,8 @@
   display: flex;
   flex-flow: row wrap;
   padding: 30px 50px 20px 50px;
-  color: #c2d6d7;
-  background-color: #121f3a;
+  color: #c7f1f5;
+  background-color: rgb(37, 35, 35);
   border-top: 1px solid #e5e5e5;
 }
 
@@ -35,7 +35,7 @@
 
 .footer address {
   font-style: normal;
-  color: #c2d6d7;
+  color: #bff0f3;
 }
 
 .footer__btn {
@@ -46,7 +46,7 @@
   max-width: max-content;
   background-color: rgb(33, 33, 33, 0.07);
   border-radius: 100px;
-  color: #c2d6d7;
+  color: #c7f1f5;;
   line-height: 0;
   margin: 0.6em 0;
   font-size: 1rem;
@@ -77,7 +77,7 @@
 }
 
 .nav__ul a {
-  color: #c2d6d7;
+  color: #c7f1f5;;
 }
 
 .nav__ul a:hover {
@@ -115,18 +115,11 @@
   margin-bottom: 1.5rem;
 }
 
-.cprt {
-  padding: 4px;
-}
-
 .cprt_text {
-  width: 100%;
-  background-color: #016795;
-  color: #fff;
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  margin-top: -15px;
+  color: white;
 }
 
 @media screen and (min-width: 24.375em) {

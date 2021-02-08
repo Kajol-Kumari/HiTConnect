@@ -34,7 +34,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               activeClassName="active-link"
-              to="/club-menu"
+              to="/clubs-menu"
               className="nav-links"
               onClick={closeMobileMenu}
               exact

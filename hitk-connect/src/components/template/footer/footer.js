@@ -58,11 +58,10 @@ const Footer = () => {
             </ul>
           </li>
         </ul>
-      </footer>
-
-      <div className="cprt_text ">
-        <p className="cprt py-2">Copyright © 2020 HITConnect</p>
+        <div className="cprt_text ">
+          <p className="cprt py-2">Copyright © 2020 HITConnect</p>
       </div>
+      </footer>
     </div>
   );
 };
