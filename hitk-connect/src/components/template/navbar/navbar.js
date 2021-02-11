@@ -46,7 +46,7 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink
               activeClassName="active-link"
-              to="/resources"
+              to="/blogs"
               className="nav-links"
               onClick={closeMobileMenu}
               exact

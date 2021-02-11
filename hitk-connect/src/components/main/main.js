@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Switch,Route, withRouter } from 'react-router-dom'
-// import Home from '../home/home';
+import {Switch,Route, withRouter } from 'react-router-dom';
 import NotFound from '../404/not_found';
 import LoginPage from '../auth/login-page/login-page';
 import SignupPage from '../auth/signup-page/signup-page';
 import HomePage from '../home/home-page/home-page';
 import ClubsMenuPage from '../clubs-menu-page/clubs-menu-page';
+import BlogsPage from '../blogs-page/blogs-page';
 class Main extends Component {
     render() {
         return (
@@ -16,6 +16,7 @@ class Main extends Component {
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path='/clubs-menu' component={ClubsMenuPage} />
                 <Route exact path='/signup' component={SignupPage} />
+                <Route exact path='/blogs' component={BlogsPage} />
                 <Route component={NotFound} />
               </Switch>
             </div>

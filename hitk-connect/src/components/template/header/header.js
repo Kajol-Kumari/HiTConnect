@@ -46,7 +46,7 @@ const Header = () => {
           <li className="header-item">
             <NavLink
               activeClassName="active-link"
-              to="/resources"
+              to="/blogs"
               className="header-links"
               onClick={closeMobileMenu}
               exact
