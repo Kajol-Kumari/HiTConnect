@@ -6,10 +6,12 @@ const Footer = () => {
     <div>
       <footer className="footer">
         <div className="footer__addr">
-          <h1 className="footer__logo">HITConnect</h1>
+          <h1 className="footer__logo">
+          <img src="./images/hitconnect.png" alt="logo" width="30px" height="30px"/>
+            &nbsp; HITConnect
+            </h1>
           <address>
-            <i className="fas fa-map-marker-alt"></i> 505 Simpson Square, 505
-            Simpson Square, 505 Simpson Square
+            <i className="fas fa-map-marker-alt"></i> &nbsp; Heritage Institute of Technology, Kolkata, West Bengal - 700107
             <br />
           </address>
         </div>
