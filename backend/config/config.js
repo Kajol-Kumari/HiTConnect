@@ -12,7 +12,7 @@ var db = {
 	},
 
 	dev: {
-		DATABASE_HOST_URL: "mongodb://localhost:27017/hitconnectdb",
+		DATABASE_HOST_URL: "mongodb+srv://rishikesh11599:abc1234@firstcluster.zmm2s.mongodb.net/test",
 		DATABASE_PORT: 27017,
 	},
 };
