@@ -1,28 +1,11 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./signup.css";
-
-// Show/Hide Functionality.
-window.onload = function () {
-  const togglePassword = document.querySelector("#togglePassword");
-  const password = document.querySelector("#password");
-  if (togglePassword) {
-    togglePassword.addEventListener("click", function (e) {
-      // toggle the type attribute
-      if (password) {
-        const type =
-          password.getAttribute("type") === "password" ? "text" : "password";
-        password.setAttribute("type", type);
-        // toggle the eye slash icon
-        this.classList.toggle("fa-eye-slash");
-      }
-    });
-  }
-};
 
 //state type
 type State = {
   username: "string",
   password: "string",
+  confirmpassword: "string",
   isButtonDisabled: "boolean",
   helperText: "string",
   isError: "boolean",
@@ -31,6 +14,7 @@ type State = {
 const initialState: State = {
   username: "",
   password: "",
+  confirmpassword: "",
   isButtonDisabled: true,
   helperText: "",
   isError: false,
@@ -39,6 +23,7 @@ const initialState: State = {
 type Action =
   | { type: "setUsername", payload: string }
   | { type: "setPassword", payload: string }
+  | { type: "setConfirmPassword", payload: string }
   | { type: "setIsButtonDisabled", payload: boolean }
   | { type: "loginSuccess", payload: string }
   | { type: "loginFailed", payload: string }
@@ -56,6 +41,11 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         password: action.payload,
       };
+      case "setConfirmPassword":
+        return {
+          ...state,
+          confirmpassword: action.payload,
+        };
     case "setIsButtonDisabled":
       return {
         ...state,
@@ -88,8 +78,20 @@ const reducer = (state: State, action: Action): State => {
 
 const Signup = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [hidePassword, setHidePassword] = useState(false);
+  const[hideConfirmPassword, setHideConfirmPassword] = useState(false);
+  const passwordInput = useRef("password");
+  const confirmPasswordInput = useRef("confirmpassword");
 
   useEffect(() => {
+    // Show/Hide Functionality.
+    hidePassword
+      ? (passwordInput.current = "text")
+      : (passwordInput.current = "password");
+
+      hideConfirmPassword
+        ? (confirmPasswordInput.current = "text")
+        : (confirmPasswordInput.current = "password");
     if (state.username.trim() && state.password.trim()) {
       dispatch({
         type: "setIsButtonDisabled",
@@ -101,7 +103,7 @@ const Signup = () => {
         payload: true,
       });
     }
-  }, [state.username, state.password]);
+  }, [state.username, state.password, hidePassword, hideConfirmPassword]);
 
   const handleLogin = () => {
     if (state.username === "abc@email.com" && state.password === "password") {
@@ -137,6 +139,13 @@ const Signup = () => {
   ) => {
     dispatch({
       type: "setPassword",
+      payload: event.target.value,
+    });
+  };const handleConfirmPasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: "setConfirmPassword",
       payload: event.target.value,
     });
   };
@@ -188,13 +197,16 @@ const Signup = () => {
                 id="password"
                 required="required"
                 name="password"
-                type="password"
+                type={passwordInput.current}
                 placeholder="Password"
                 onChange={handlePasswordChange}
                 onKeyPress={handleKeyPress}
                 className="inputSignup"
               />
-              <i className="far fa-eye" id="togglePassword"></i>
+              <i
+                className={hidePassword ? "fa fa-eye" : "fa fa-eye-slash"}
+                onClick={() => setHidePassword(!hidePassword)}
+              ></i>
             </div>
             <div className="signup-input">
               <input
@@ -202,13 +214,16 @@ const Signup = () => {
                 id="confirm-password"
                 required="required"
                 name="confirm-password"
-                type="password"
+                type={confirmPasswordInput.current}
                 placeholder="Confirm Password"
-                onChange={handlePasswordChange}
+                onChange={handleConfirmPasswordChange}
                 onKeyPress={handleKeyPress}
                 className="inputSignup"
               />
-              <i className="far fa-eye" id="togglePassword"></i>
+              <i
+                className={hideConfirmPassword ? "fa fa-eye" : "fa fa-eye-slash"}
+                onClick={() => setHideConfirmPassword(!hideConfirmPassword)}
+              ></i>
             </div>
             <div className="signup-input" style={{ textAlign: "center" , marginTop: "-20px"}}>
               Already have an account? <a href="/login">Log In</a> here!!

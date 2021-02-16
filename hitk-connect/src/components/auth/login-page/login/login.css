@@ -115,12 +115,8 @@
   cursor: pointer;
 }
 
-.fa-eye:hover {
+.fa-eye:hover, .fa-eye-slash:hover {
   color: rgb(17, 133, 17);
-}
-
-.fa-user:hover {
-  color: rgb(221, 144, 29);
 }
 
 @media screen and (max-width: 750px) {
