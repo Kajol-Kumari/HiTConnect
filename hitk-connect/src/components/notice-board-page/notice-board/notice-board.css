@@ -1,0 +1,22 @@
+.notice-board-div {
+    padding: 1rem 8rem;
+    height: 90vh;
+}
+
+.notice-board-img {
+    padding-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.notice-board-card{
+    border-radius: 8px;
+    background-color: #016795;
+    color: white;
+    padding: 2rem 4rem;
+}
+
+.notice-board-content {
+    padding: 2rem;
+}

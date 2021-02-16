@@ -11,7 +11,7 @@ const Footer = () => {
             &nbsp; HITConnect
             </h1>
           <address>
-            <i className="fas fa-map-marker-alt"></i> &nbsp; Heritage Institute of Technology, Kolkata, West Bengal - 700107
+            <i className="fas fa-map-marker-alt"></i> Heritage Institute of Technology, Kolkata, West Bengal - 700107
             <br />
           </address>
         </div>
