@@ -21,23 +21,19 @@ const Footer = () => {
 
             <ul className="nav__ul">
               <li>
-                <a href="/about-us">About</a>
+                <a href="/">Home</a>
               </li>
 
               <li>
-                <a href="/broadcasts">Clubs</a>
+                <a href="/clubs-menu">Clubs</a>
               </li>
 
               <li>
-                <a href="/resources">Blogs</a>
+                <a href="/blogs">Blogs</a>
               </li>
 
               <li>
-                <a href="/contact-us">Contact</a>
-              </li>
-
-              <li>
-                <a href="/faqs">FAQs</a>
+                <a href="/notice-board">Notice Board</a>
               </li>
             </ul>
           </li>
