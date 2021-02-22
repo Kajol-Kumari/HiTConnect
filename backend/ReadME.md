@@ -4,6 +4,10 @@
 
 `cd backend`
 
-2. Run the server:
+2. Install Dependencies
+
+`npm install`
+
+3. Run the server:
 
 `node app.js`
