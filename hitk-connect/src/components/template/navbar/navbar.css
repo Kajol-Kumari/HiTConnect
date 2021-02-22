@@ -1,6 +1,5 @@
 .navbar-div {
     height: 80px;
-    /* background-color: #797676; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +35,6 @@
   
   .nav-links {
     color: black;
-    /* color: white; */
     text-decoration: none;
     padding: 0.5rem 1rem;
   }
@@ -70,7 +68,7 @@
   }
   
   .fa-bars {
-    color: black;
+    color: #125181;
   }
   
   .nav-links-mobile {
@@ -81,10 +79,6 @@
     display: none;
   }
 
-  .partition {
-      /* color: white; */
-  }
-  
   .active-link {
     color: #fc0254;
   }
@@ -172,7 +166,7 @@
     }
   
     .fa-times {
-      color: #fff;
+      color: #125181;
       font-size: 2rem;
     }
   
