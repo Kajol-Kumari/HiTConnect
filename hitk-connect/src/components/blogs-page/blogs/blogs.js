@@ -12,7 +12,7 @@ export default class Blogs extends Component {
         <div className="blogs-content">
           <div className="create-blog">
             <div className="create-blog-btn">
-              <a href="/" rel="noopener noreferrer">
+              <a href="/create-blog" rel="noopener noreferrer">
                 <div className="clickable-card">
                   <i class="fa fa-plus" aria-hidden="true"></i> Create New Blog
                 </div>
