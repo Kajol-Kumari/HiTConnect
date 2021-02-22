@@ -1,0 +1,38 @@
+.sliderDiv {
+    padding: 2em 0;
+  }
+  
+  .slide {
+    background-color: #0F9B8E;
+    width: 100%;
+    margin: 1em auto;
+    padding-top: 2em !important;
+  }
+
+  .slideCard {
+    min-height: 25em;
+    border-radius: 20px;
+    background-color: #1B2431;
+    color: white;
+    margin: 0.8em 1.5em 0;
+    padding: 1em;
+  }
+  
+  .slideCard:hover {
+    background-color: #016795;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .cardHead {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .cardText {
+    margin: 1.5em 0;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 15px;
+  }
+  

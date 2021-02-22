@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Carousel from "../carousel/carousel";
 import "./blogs.css";
 
 export default class Blogs extends Component {
@@ -13,14 +14,15 @@ export default class Blogs extends Component {
             <div className="create-blog-btn">
               <a href="/" rel="noopener noreferrer">
                 <div className="clickable-card">
-                  <i class="fa fa-plus" aria-hidden="true"></i> Create Blog
+                  <i class="fa fa-plus" aria-hidden="true"></i> Create New Blog
                 </div>
               </a>
             </div>
           </div>
           <div className="blog-list">
-              {/* add carousel having 3-5 cards */}
-              {/* Add a button below that will contain the link to all blogs page */}
+            <div>
+              <Carousel head="Blogs" />
+            </div>
           </div>
         </div>
       </div>
