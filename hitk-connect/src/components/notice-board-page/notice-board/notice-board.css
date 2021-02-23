@@ -1,10 +1,9 @@
 .notice-board-div {
-    padding: 1rem 8rem;
-    height: 90vh;
+    padding: 1rem 8rem 10rem 8rem;
 }
 
 .notice-board-img {
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
     font-size: 40px;
     text-align: center;
     font-weight: bold;
@@ -19,4 +18,20 @@
 
 .notice-board-content {
     padding: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+    .notice-board-content {
+        padding: 1rem;
+    }
+
+    .notice-board-card{
+        padding: 0;
+    }
+
+    .notice-board-div {
+        padding: 1rem;
+        height: 100vh;
+        margin-bottom: 18rem;
+    }
 }
