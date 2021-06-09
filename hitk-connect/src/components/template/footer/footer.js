@@ -11,7 +11,7 @@ const Footer = () => {
             &nbsp; HITConnect
             </h1>
           <address>
-            <i className="fas fa-map-marker-alt"></i> Heritage Institute of Technology, Kolkata, West Bengal - 700107
+            <i className="fas fa-map-marker-alt"></i> Heritage Institute of Technology, Anandapur, Kolkata, West Bengal - 700107
             <br />
           </address>
         </div>
@@ -57,7 +57,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="cprt_text ">
-          <p className="cprt py-2">Copyright © 2020 HITConnect</p>
+          <p className="cprt py-2">Copyright © 2021 HITConnect</p>
       </div>
       </footer>
     </div>
