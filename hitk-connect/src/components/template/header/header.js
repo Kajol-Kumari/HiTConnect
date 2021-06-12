@@ -54,7 +54,18 @@ const Header = () => {
               Blogs
             </NavLink>
           </li>
-
+          <li className="header-item header-partition">|</li>
+          <li className="header-item">
+            <NavLink
+              activeClassName="active-link"
+              to="/feeds"
+              className="header-links"
+              onClick={closeMobileMenu}
+              exact
+            >
+              Feeds
+            </NavLink>
+          </li>
           <li className="header-item header-partition">|</li>
           <li className="header-item">
             <NavLink

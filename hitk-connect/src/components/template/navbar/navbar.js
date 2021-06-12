@@ -54,7 +54,18 @@ const Navbar = () => {
               Blogs
             </NavLink>
           </li>
-
+          <li className="nav-item partition">|</li>
+          <li className="nav-item">
+            <NavLink
+              activeClassName="active-link"
+              to="/feeds"
+              className="nav-links"
+              onClick={closeMobileMenu}
+              exact
+            >
+              Feeds
+            </NavLink>
+          </li>
           <li className="nav-item partition">|</li>
           <li
             className="nav-item"

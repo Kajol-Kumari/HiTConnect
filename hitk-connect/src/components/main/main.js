@@ -8,6 +8,7 @@ import ClubsMenuPage from '../clubs-menu-page/clubs-menu-page';
 import BlogsPage from '../blogs-page/blogs-page';
 import NoticeBoardPage from '../notice-board-page/notice-board-page';
 import CreateBlogPage from '../blogs-page/create-blog-page/create-blog-page';
+import FeedsPage from '../feeds-page/feeds-page';
 class Main extends Component {
     render() {
         return (
@@ -21,6 +22,7 @@ class Main extends Component {
                 <Route exact path='/blogs' component={BlogsPage} />
                 <Route exact path='/create-blog' component = {CreateBlogPage} />
                 <Route exact path="/notice-board" component={NoticeBoardPage} />
+                <Route exact path="/feeds" component={FeedsPage} />
                 <Route component={NotFound} />
               </Switch>
             </div>
