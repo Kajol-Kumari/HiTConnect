@@ -13,17 +13,20 @@ export default class CreateBlog extends Component {
                 </div>
                 <div className="editor-wrapper">
                 <div className="header">
-                    {/* <p className="headingg">Blog heading</p> */}
                     <input
                         type="text"
                         className="inputs"
                         placeholder="Blog Heading..."
                     ></input>
                 </div>
+                <div className="header">
+                    <input
+                        type="url"
+                        className="inputs"
+                        placeholder="Related Link..."
+                    ></input>
+                </div>
                 <div>
-                    {/* <p className="headingg">
-                        Enter the Blog content here...
-                    </p> */}
                     <SunEditor
                         lang="en"
                         placeholder="Please put the content here..."
