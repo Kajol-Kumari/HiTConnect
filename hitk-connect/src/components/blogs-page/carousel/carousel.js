@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import styles from "./carousel.module.css";
+import style from "./carousel.module.css";
+import "./carousel.module.css";
 import "./customOwlCarouselStyle.css";
 import dataa from "../../../test_folder/blogs.json";
+import { Modals } from "./modal/modal";
 
-export default function Owl({ head }) {
+export default function Owl(props) {
+  let dark = props.theme;
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = (s, h, i) => {
+    setOpen(true);
+    setData({ head: h, desc: s, img: i });
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setData({});
+  };
+
+  const [data, setData] = useState({});
   const state = {
     options: {
       loop: true,
@@ -33,23 +50,57 @@ export default function Owl({ head }) {
     },
   };
 
+  const cardImageArrayLight = dataa.map((item, i) => {
+    const style = {
+      height: "13em",
+      backgroundSize: "cover",
+      backgroundBlendMode: "screen",
+      clipPath: "polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)",
+      backgroundImage: `linear-gradient(45deg,rgba(255, 0, 90, 1) 0%,rgba(10, 24, 61, 1) 90%),url(${item.link})`,
+    };
+    return style;
+  });
+
+  const cardImageArrayDark = dataa.map((item, i) => {
+    const style = {
+      height: "13em",
+      backgroundSize: "cover",
+      backgroundBlendMode: "screen",
+      clipPath: "polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%)",
+      backgroundImage: `linear-gradient(45deg, 
+        #4e4376 0%, 
+        #2b5876 90%),url(${item.link})`,
+    };
+    return style;
+  });
+
   return (
     <React.Fragment>
-      <div className={styles.sliderDiv}>
-        <OwlCarousel
-          className={`owl-theme ${styles.slide} `}
+      <Modals theme={dark} open={open} handleClose={handleClose} data={data} />
+      <div className="slider-div">
+      <OwlCarousel
+          className={`${style["slide"]} owl-theme `}
           {...state.options}
           autoplay={true}
           responsiveClass={true}
           nav={false}
         >
           {dataa.map((item, i) => (
-            <div className={styles.slideCard}>
-              <h3 className={styles.cardHead}>{item.title}</h3>
+            <div
+              className={
+                dark
+                  ? `${style["slide-card-dark"]} ${style["slide-card"]}`
+                  : `${style["slide-card-light"]} ${style["slide-card"]}`
+              }
+              onClick={() => handleOpen(item.desc, item.title, item.link)}
+            >
               <div
-                className={styles.cardText}
-              >
-                {item.desc.substring(0, 400)}...
+                style={dark ? cardImageArrayDark[i] : cardImageArrayLight[i]}
+              ></div>
+
+              <h3 className={style["card-head"]}>{item.title}</h3>
+              <div className={style["card-text"]}>
+                {item.desc.substring(0, 210)}...
               </div>
             </div>
           ))}

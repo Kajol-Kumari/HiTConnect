@@ -17,3 +17,7 @@
 .create-blog-btn:hover {
   background-color: rgb(37, 35, 35);
 }
+
+.create-blog {
+  padding-bottom: 2rem;
+}
