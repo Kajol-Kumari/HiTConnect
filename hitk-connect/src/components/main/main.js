@@ -9,6 +9,7 @@ import BlogsPage from '../blogs-page/blogs-page';
 import NoticeBoardPage from '../notice-board-page/notice-board-page';
 import CreateBlogPage from '../blogs-page/create-blog-page/create-blog-page';
 import FeedsPage from '../feeds-page/feeds-page';
+import OpportunitiesPage from '../opportunities-page/opportunities-page';
 class Main extends Component {
     render() {
         return (
@@ -23,6 +24,7 @@ class Main extends Component {
                 <Route exact path='/create-blog' component = {CreateBlogPage} />
                 <Route exact path="/notice-board" component={NoticeBoardPage} />
                 <Route exact path="/feeds" component={FeedsPage} />
+                <Route exact path="/opportunities" component={OpportunitiesPage} />
                 <Route component={NotFound} />
               </Switch>
             </div>
