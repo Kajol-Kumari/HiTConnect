@@ -79,6 +79,18 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item partition">|</li>
+          <li className="nav-item">
+            <NavLink
+              activeClassName="active-link"
+              to="/projects"
+              className="nav-links"
+              onClick={closeMobileMenu}
+              exact
+            >
+              Projects
+            </NavLink>
+          </li>
+          <li className="nav-item partition">|</li>
           <li
             className="nav-item"
           >

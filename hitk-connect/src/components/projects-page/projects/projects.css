@@ -1,0 +1,50 @@
+.signup-file-input {
+    position: relative;
+}
+
+.signup-file-input input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #bbbaba;
+    border-radius: 10px;
+    padding: 10px 25px;
+    color: #777777;
+    margin-bottom: 30px !important;
+    background-color: #f1f1f1;
+    box-shadow: inset 2px 2px 5px #888888, inset -2px -2px 5px #ffffff;
+}
+
+.signup-file-input input::placeholder {
+    opacity: 1;
+    color: #777777;
+}
+
+.signup-file-input input::-webkit-input-placeholder {
+    opacity: 1;
+    color: #777777;
+}
+
+.signup-file-input input:focus {
+    background-color: #ffffff;
+}
+
+.signup-file-input i {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 16px;
+    color: #777777;
+}
+
+.feed-child2{
+    margin-top: 60px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.feed-title {
+  font-size: 40px;
+  line-height: 2rem;
+  font-weight: bold;
+}
