@@ -11,6 +11,7 @@ import CreateBlogPage from '../blogs-page/create-blog-page/create-blog-page';
 import FeedsPage from '../feeds-page/feeds-page';
 import OpportunitiesPage from '../opportunities-page/opportunities-page';
 import ProjectsPage from '../projects-page/projects-page';
+import HitkTechCommunityPage from '../club-details/hitk-tech-community-page/hitk-tech-community-page';
 class Main extends Component {
     render() {
         return (
@@ -20,6 +21,7 @@ class Main extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path='/clubs-menu' component={ClubsMenuPage} />
+                <Route exact path='/clubs-menu/hitk-tech-community' component={HitkTechCommunityPage} />
                 <Route exact path='/signup' component={SignupPage} />
                 <Route exact path='/blogs' component={BlogsPage} />
                 <Route exact path='/create-blog' component = {CreateBlogPage} />
