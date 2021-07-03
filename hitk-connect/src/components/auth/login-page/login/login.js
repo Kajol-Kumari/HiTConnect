@@ -92,18 +92,20 @@ const Login = () => {
     }
   }, [state.username, state.password, hidePassword]);
 
-  const handleLogin = () => {
-    if (state.username === "abc@email.com" && state.password === "password") {
-      dispatch({
-        type: "loginSuccess",
-        payload: "Login Successfully",
-      });
-    } else {
-      dispatch({
-        type: "loginFailed",
-        payload: "Incorrect username or password",
-      });
-    }
+  async function handleLogin () {
+    console.log('Details:', state.username, state.password);
+    // chaneg the url accordingly!
+    let result = await fetch("http://localhost:4000/api/v1/login", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(state.username, state.password)
+    });
+    result = await result.json();
+    console.log(result);
+    // localStorage.setItem("userinfo", JSON.stringify(result));
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
@@ -144,7 +146,6 @@ const Login = () => {
             <div className="login-input">
               <input
                 autoComplete="off"
-                error={state.isError}
                 id="username"
                 type="email"
                 required="required"
@@ -158,7 +159,6 @@ const Login = () => {
             </div>
             <div className="login-input">
               <input
-                error={state.isError}
                 id="password"
                 required="required"
                 name="password"
