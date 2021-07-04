@@ -6,12 +6,11 @@ export default class NoticeBoard extends Component {
     return (
       <div class="notice-board-div">
         <div className="notice-board-img">
-            {/* <img src="./images/notice.png" alt="" /> */}
             Notice Board
         </div>
         <div className="notice-board-card">
           <div className="notice-board-content">
-            <iframe scrolling="no" src="https://www.heritageit.edu/Notice.aspx"></iframe>
+            <iframe id="notice-frame" title="Notice Board" scrolling="no" src="https://www.heritageit.edu/Notice.aspx"></iframe>
          </div>
         </div>
       </div>

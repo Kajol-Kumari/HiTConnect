@@ -11,9 +11,9 @@
 
 .notice-board-card{
     border-radius: 8px;
-    background-color: #016795;
+    background-color: #f1f1f1;
     color: white;
-    padding: 2em 0em 2em 12em;
+    padding: 2em 0em 0em 12em;
 }
 
 .notice-board-content {
@@ -23,7 +23,7 @@
     position : relative;
 }
 
-iframe
+#notice-frame
 {
     position : absolute;
     top      : -150px;
