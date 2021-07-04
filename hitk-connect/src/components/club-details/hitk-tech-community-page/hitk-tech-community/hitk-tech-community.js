@@ -1,12 +1,12 @@
-import React from 'react';
+import { Component } from 'react';
 import "./hitk-tech-community.css";
 
-const HitkTechCommunity = () => {
-	return (
-		<div>
-			Community Page!
-		</div>
-	);
+export default class HitkTechCommunity extends Component {
+	render() {
+		return (
+			<div>
+				Community Page!
+			</div>
+		);
+	}
 };
-
-export default HitkTechCommunity;

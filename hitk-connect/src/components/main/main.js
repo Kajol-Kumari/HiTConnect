@@ -12,6 +12,7 @@ import FeedsPage from '../feeds-page/feeds-page';
 import OpportunitiesPage from '../opportunities-page/opportunities-page';
 import ProjectsPage from '../projects-page/projects-page';
 import HitkTechCommunityPage from '../club-details/hitk-tech-community-page/hitk-tech-community-page';
+import PrivacyPolicyPage from '../privacy-policy-page/privacy-policy-page';
 class Main extends Component {
     render() {
         return (
@@ -29,6 +30,7 @@ class Main extends Component {
                 <Route exact path="/feeds" component={FeedsPage} />
                 <Route exact path="/opportunities" component={OpportunitiesPage} />
                 <Route exact path="/projects" component={ProjectsPage} />
+                <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
                 <Route component={NotFound} />
               </Switch>
             </div>
