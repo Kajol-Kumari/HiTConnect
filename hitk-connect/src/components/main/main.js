@@ -14,6 +14,7 @@ import ProjectsPage from '../projects-page/projects-page';
 import HitkTechCommunityPage from '../club-details/hitk-tech-community-page/hitk-tech-community-page';
 import PrivacyPolicyPage from '../privacy-policy-page/privacy-policy-page';
 import TermsOfUsePage from '../terms-of-use-page/terms-of-use-page';
+import GetInvolvedPage from '../get-involved-page/get-involved-page';
 class Main extends Component {
     render() {
         return (
@@ -32,7 +33,8 @@ class Main extends Component {
                 <Route exact path="/opportunities" component={OpportunitiesPage} />
                 <Route exact path="/projects" component={ProjectsPage} />
                 <Route exact path="/privacy-policy" component={PrivacyPolicyPage} />
-                <Route exact path="/terms" component={TermsOfUsePage}/>
+                <Route exact path="/terms" component={TermsOfUsePage} />
+                <Route exact path="/get-involved" component={GetInvolvedPage} />
                 <Route component={NotFound} />
               </Switch>
             </div>
