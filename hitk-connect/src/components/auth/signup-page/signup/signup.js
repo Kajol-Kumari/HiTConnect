@@ -1,9 +1,13 @@
 import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./signup.css";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 //state type
 type State = {
-  username: "string",
+  email: "email",
+  name: "string",
   password: "string",
   confirmpassword: "string",
   isButtonDisabled: "boolean",
@@ -12,7 +16,8 @@ type State = {
 };
 
 const initialState: State = {
-  username: "",
+  email: "",
+  name: "",
   password: "",
   confirmpassword: "",
   isButtonDisabled: true,
@@ -22,6 +27,7 @@ const initialState: State = {
 
 type Action =
   | { type: "setUsername", payload: string }
+  | { type: "setEmail", payload: string }
   | { type: "setPassword", payload: string }
   | { type: "setConfirmPassword", payload: string }
   | { type: "setIsButtonDisabled", payload: boolean }
@@ -34,7 +40,12 @@ const reducer = (state: State, action: Action): State => {
     case "setUsername":
       return {
         ...state,
-        username: action.payload,
+        name: action.payload,
+      };
+    case "setEmail":
+      return {
+        ...state,
+        email: action.payload,
       };
     case "setPassword":
       return {
@@ -79,7 +90,7 @@ const reducer = (state: State, action: Action): State => {
 const Signup = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [hidePassword, setHidePassword] = useState(false);
-  const[hideConfirmPassword, setHideConfirmPassword] = useState(false);
+  const [hideConfirmPassword, setHideConfirmPassword] = useState(false);
   const passwordInput = useRef("password");
   const confirmPasswordInput = useRef("confirmpassword");
 
@@ -92,7 +103,7 @@ const Signup = () => {
       hideConfirmPassword
         ? (confirmPasswordInput.current = "text")
         : (confirmPasswordInput.current = "password");
-    if (state.username.trim() && state.password.trim()) {
+    if (state.email.trim() && state.name.trim() && state.password.trim() && state.confirmpassword.trim()) {
       dispatch({
         type: "setIsButtonDisabled",
         payload: false,
@@ -102,26 +113,37 @@ const Signup = () => {
         type: "setIsButtonDisabled",
         payload: true,
       });
-    }
-  }, [state.username, state.password, hidePassword, hideConfirmPassword]);
+      }
+  }, [state.email, state.name, state.password, hidePassword, hideConfirmPassword]);
 
-  const handleLogin = () => {
-    if (state.username === "abc@email.com" && state.password === "password") {
-      dispatch({
-        type: "loginSuccess",
-        payload: "Login Successfully",
-      });
+  async function handleSignup() {
+    if(state.password == state.confirmpassword){
+      let result = await fetch("http://localhost:8080/auth/register", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({"email": state.email, name: state.name, password:state.password})
+    });
+    result = await result.json();
+    if(result.status == 200){
+      toast.success('Registration Successful!')
+    } else {
+      toast.error('Already Registered!')
+    }
     } else {
       dispatch({
         type: "loginFailed",
-        payload: "Incorrect username or password",
+        payload: "Incorrect name or password",
       });
+      toast.error('Password Does not match!')
     }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.keyCode === 13 || event.which === 13) {
-      state.isButtonDisabled || handleLogin();
+      state.isButtonDisabled || handleSignup();
     }
   };
 
@@ -130,6 +152,15 @@ const Signup = () => {
   ) => {
     dispatch({
       type: "setUsername",
+      payload: event.target.value,
+    });
+  };
+
+  const handleEmailChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: "setEmail",
       payload: event.target.value,
     });
   };
@@ -170,7 +201,7 @@ const Signup = () => {
                 required="required"
                 name="email"
                 placeholder="Email"
-                onChange={handleUsernameChange}
+                onChange={handleEmailChange}
                 onKeyPress={handleKeyPress}
                 className="inputSignup"
               />
@@ -183,7 +214,7 @@ const Signup = () => {
                 id="name"
                 type="text"
                 required="required"
-                name="username"
+                name="name"
                 placeholder="Name"
                 onChange={handleUsernameChange}
                 onKeyPress={handleKeyPress}
@@ -232,7 +263,7 @@ const Signup = () => {
               <button
                 id="btn"
                 className="login-btn main-btn main-btn-2"
-                onClick={handleLogin}
+                onClick={handleSignup}
                 disabled={state.isButtonDisabled}
               >
                 Sign Up

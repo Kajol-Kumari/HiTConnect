@@ -1,5 +1,9 @@
 import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./login.css";
+import  { Redirect } from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 //state type
 type State = {
@@ -93,19 +97,22 @@ const Login = () => {
   }, [state.username, state.password, hidePassword]);
 
   async function handleLogin () {
-    console.log('Details:', state.username, state.password);
     // chaneg the url accordingly!
-    let result = await fetch("http://localhost:4000/api/v1/login", {
+    let result = await fetch("http://localhost:8080/user/login", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(state.username, state.password)
+      body: JSON.stringify({email: state.username, password: state.password})
     });
     result = await result.json();
-    console.log(result);
-    // localStorage.setItem("userinfo", JSON.stringify(result));
+    if(result.status == 0){
+      localStorage.setItem("token", JSON.stringify(result.token));
+      return <Redirect to='/'  />
+    } else {
+      toast.error('Error Occurred!')
+    }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
