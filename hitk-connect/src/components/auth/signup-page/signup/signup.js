@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./signup.css";
+import { useHistory } from "react-router-dom";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
@@ -88,6 +89,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Signup = () => {
+  const history = useHistory();
   const [state, dispatch] = useReducer(reducer, initialState);
   const [hidePassword, setHidePassword] = useState(false);
   const [hideConfirmPassword, setHideConfirmPassword] = useState(false);
@@ -129,6 +131,7 @@ const Signup = () => {
     result = await result.json();
     if(result.status === 200){
       toast.success('Registration Successful!')
+      history.push('/login');
     } else {
       toast.error('Already Registered!')
     }

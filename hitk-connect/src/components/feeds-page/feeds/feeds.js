@@ -1,5 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./feeds.css";
+import { useHistory } from "react-router-dom";
+toast.configure()
 
 //state type
 type State = {
@@ -40,16 +44,16 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         title: action.payload,
       };
-      case "setContent":
-        return {
-          ...state,
-          content: action.payload,
-        };
-        case "setTag":
-          return {
-            ...state,
-            tag: action.payload,
-          };
+    case "setContent":
+      return {
+        ...state,
+        content: action.payload,
+      };
+    case "setTag":
+      return {
+        ...state,
+        tag: action.payload,
+      };
     default:
       return {
         ...state,
@@ -58,6 +62,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Feeds = () => {
+  const history = useHistory();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -75,11 +80,31 @@ const Feeds = () => {
     }
   }, [state.creator, state.title, state.content, state.tag, state.imgFile]);
 
-  const handleFeedSubmit = () => {
+  async function handleFeedSubmit() {
+    let result = await fetch("http://localhost:8080/feed/post", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        title: state.title, content: state.content,
+        image: state.imgFile,
+      })
+    });
+    result = await result.json();
+    if (result.status === 200) {
+      toast.success('Feed Added SuccessFully!');
+      console.log(result);
+      // route to a different page
+      history.push('/');
+    } else {
+      toast.error('Error Occurred!')
+    }
   };
   return (
-    <div className="login-section">
-      <div className="signup-form child1">
+    <div className="feedback-section">
+      <div className="feed-form fchild1">
         <div className="signup-card">
           <h1 className="card-heading">Create Feed!</h1>
           <div className="inside-card">
@@ -162,10 +187,48 @@ const Feeds = () => {
       </div>
       <div className="login-image feed-child2">
         <div className="feed-title">
-            Feeds
+          Feeds
+        </div>
+        <div className="feed-list-card-wrapper">
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
+
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
+
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
     </div>
   );
 };

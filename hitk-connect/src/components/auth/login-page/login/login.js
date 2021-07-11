@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./login.css";
-import  { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
@@ -73,6 +73,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Login = () => {
+  const history = useHistory();
   const [state, dispatch] = useReducer(reducer, initialState);
   const [hidePassword, setHidePassword] = useState(false);
   const passwordInput = useRef("password");
@@ -97,7 +98,7 @@ const Login = () => {
   }, [state.username, state.password, hidePassword]);
 
   async function handleLogin () {
-    // chaneg the url accordingly!
+    // change the url accordingly!
     let result = await fetch("http://localhost:8080/user/login", {
       method: 'POST',
       headers: {
@@ -107,9 +108,10 @@ const Login = () => {
       body: JSON.stringify({email: state.username, password: state.password})
     });
     result = await result.json();
-    if(result.status === 0){
+    if(result.status === 200){
       localStorage.setItem("token", JSON.stringify(result.token));
-      return <Redirect to='/'  />
+      history.push('/admin');
+      toast.success('Logged In successfully!')
     } else {
       toast.error('Error Occurred!')
     }

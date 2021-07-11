@@ -36,15 +36,9 @@
     color: #777777;
 }
 
-.feed-child2{
-    margin-top: 60px;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-
 .feed-title {
   font-size: 40px;
   line-height: 2rem;
   font-weight: bold;
+  text-align: center;
 }

@@ -71,8 +71,8 @@ const Opportunities = () => {
   const handleSubmit = () => {
   };
   return (
-    <div className="login-section">
-      <div className="signup-form child1">
+    <div className="opportunity-section">
+      <div className="signup-form">
         <div className="signup-card">
           <h1 className="card-heading">New Opportunity!</h1>
           <div className="inside-card">
@@ -141,12 +141,50 @@ const Opportunities = () => {
           </div>
         </div>
       </div>
-      <div className="login-image feed-child2">
+      <div className="login-image">
         <div className="feed-title">
             Opportunities
         </div>
-      </div>
-      
+        </div>
+        <div className="feed-list-card-wrapper">
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
+
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
+
+          <div className="feed-card-item">
+            <div className="clickable-card">
+              <div className="card-title">Ghunghroo</div>
+              <img src="./images/login.png" alt="dummy_img" />
+              <div className="card-content">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   );
 };
