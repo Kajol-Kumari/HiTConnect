@@ -4,22 +4,19 @@ import "./opportunities.css";
 //state type
 type State = {
   title: "string",
-  description: "string",
-  url: "string",
+  content: "string",
   imgFile: "File",
 };
 
 const initialState: State = {
   title: "",
-  description: "",
-  url: "",
+  content: "",
   imgFile: "",
 };
 
 type Action =
   | { type: "setTitle", payload: string }
-  | { type: "setDescription", payload: string }
-  | { type: "setUrl", payload: string }
+  | { type: "setContent", payload: string }
   | { type: "setIsButtonDisabled", payload: boolean }
   | { type: "opportunitySuccess", payload: string }
   | { type: "opportunityFailed", payload: string }
@@ -32,16 +29,11 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         creator: action.payload,
       };
-    case "setDescription":
+    case "setContent":
       return {
         ...state,
         title: action.payload,
       };
-        case "setUrl":
-          return {
-            ...state,
-            tag: action.payload,
-          };
     default:
       return {
         ...state,
@@ -54,7 +46,7 @@ const Opportunities = () => {
 
   useEffect(() => {
     // Show/Hide Functionality.
-    if (state.title.trim() && state.description.trim() && state.url.trim() && state.imgFile) {
+    if (state.title.trim() && state.content.trim() && state.imgFile) {
       dispatch({
         type: "setIsButtonDisabled",
         payload: false,
@@ -96,7 +88,7 @@ const Opportunities = () => {
                 id="content"
                 type="text"
                 required="required"
-                name="description"
+                name="content"
                 placeholder="description"
                 className="inputSignup"
               />

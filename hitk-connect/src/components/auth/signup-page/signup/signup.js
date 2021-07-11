@@ -116,7 +116,7 @@ const Signup = () => {
         payload: true,
       });
       }
-  }, [state.email, state.name, state.password, hidePassword, hideConfirmPassword]);
+  }, [state.email, state.name, state.password, hidePassword, state.confirmpassword, hideConfirmPassword]);
 
   async function handleSignup() {
     if(state.password === state.confirmpassword){

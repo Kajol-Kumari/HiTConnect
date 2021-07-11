@@ -4,21 +4,21 @@ import "./projects.css";
 //state type
 type State = {
   title: "string",
-  description: "string",
+  content: "string",
   url: "string",
   imgFile: "File",
 };
 
 const initialState: State = {
   title: "",
-  description: "",
+  content: "",
   url: "",
   imgFile: "",
 };
 
 type Action =
   | { type: "setTitle", payload: string }
-  | { type: "setDescription", payload: string }
+  | { type: "setContent", payload: string }
   | { type: "setUrl", payload: string }
   | { type: "setIsButtonDisabled", payload: boolean }
   | { type: "opportunitySuccess", payload: string }
@@ -32,7 +32,7 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         creator: action.payload,
       };
-    case "setDescription":
+    case "setContent":
       return {
         ...state,
         title: action.payload,
@@ -54,7 +54,7 @@ const Projects = () => {
 
   useEffect(() => {
     // Show/Hide Functionality.
-    if (state.title.trim() && state.description.trim() && state.url.trim() && state.imgFile) {
+    if (state.title.trim() && state.content.trim() && state.url.trim() && state.imgFile) {
       dispatch({
         type: "setIsButtonDisabled",
         payload: false,
@@ -65,7 +65,7 @@ const Projects = () => {
         payload: true,
       });
     }
-  }, [state.creator, state.title, state.content, state.tag, state.imgFile]);
+  }, [state.creator, state.title, state.content, state.tag, state.imgFile, state.url]);
 
     // write the logic for submission here
   const handleSubmit = () => {
@@ -96,7 +96,7 @@ const Projects = () => {
                 id="content"
                 type="text"
                 required="required"
-                name="description"
+                name="content"
                 placeholder="description"
                 className="inputSignup"
               />
@@ -106,10 +106,10 @@ const Projects = () => {
             <div className="signup-input">
               <input
                 autoComplete="off"
-                id="tag"
+                id="url"
                 type="uri"
-                name="link"
-                placeholder="link"
+                name="url"
+                placeholder="Project URL"
                 className="inputSignup"
               />
               <i className="fas fa-link"></i>
