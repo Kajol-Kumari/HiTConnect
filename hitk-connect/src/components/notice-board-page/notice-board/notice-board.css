@@ -1,5 +1,5 @@
 .notice-board-div {
-    padding: 1rem 8rem 10rem 8rem;
+    padding: 1rem 20rem 10rem;
 }
 
 .notice-board-img {
@@ -13,7 +13,7 @@
     border-radius: 8px;
     background-color: #f1f1f1;
     color: white;
-    padding: 2em 0em 0em 12em;
+    padding: 2em 0em;
 }
 
 .notice-board-content {
@@ -21,6 +21,7 @@
     height   : 500px;
     overflow : hidden;
     position : relative;
+    margin: 0 auto;
 }
 
 #notice-frame

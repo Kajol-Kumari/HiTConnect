@@ -6,10 +6,27 @@
 cd hitk-connect
 ```
 
-2. Run the frontend using the bewlo code -
+2. Install Depencies 
+
+```
+npm install
+```
+OR
+
+```
+yarn install
+```
+
+3. Run the frontend using the below code -
 
 ```
 npm start
+```
+
+OR
+
+```
+yarn start
 ```
 
 Navigate to [http://localhost:3000/](http://localhost:3000/) to see the frontend runing

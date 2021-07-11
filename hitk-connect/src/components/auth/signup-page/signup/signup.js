@@ -117,7 +117,7 @@ const Signup = () => {
   }, [state.email, state.name, state.password, hidePassword, hideConfirmPassword]);
 
   async function handleSignup() {
-    if(state.password == state.confirmpassword){
+    if(state.password === state.confirmpassword){
       let result = await fetch("http://localhost:8080/auth/register", {
       method: 'POST',
       headers: {
@@ -127,7 +127,7 @@ const Signup = () => {
       body: JSON.stringify({"email": state.email, name: state.name, password:state.password})
     });
     result = await result.json();
-    if(result.status == 200){
+    if(result.status === 200){
       toast.success('Registration Successful!')
     } else {
       toast.error('Already Registered!')

@@ -107,7 +107,7 @@ const Login = () => {
       body: JSON.stringify({email: state.username, password: state.password})
     });
     result = await result.json();
-    if(result.status == 0){
+    if(result.status === 0){
       localStorage.setItem("token", JSON.stringify(result.token));
       return <Redirect to='/'  />
     } else {
