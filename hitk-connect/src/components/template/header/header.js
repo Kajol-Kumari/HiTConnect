@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-
 import "./header.css";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -9,11 +11,54 @@ const Header = () => {
   const toggleNav = () => setIsNavOpen(!isNavOpen);
 
   const closeMobileMenu = () => setIsNavOpen(false);
+
+  const isLoggedInMobile = () => {
+    if (localStorage.getItem("token")) {
+      return <li className="nav-item">
+        <Link
+          to="/login"
+          className="nav-links-mobile"
+          onClick={() => { closeMobileMenu(); LogOut();}}
+          exact
+        >
+          Logout
+        </Link>
+      </li>
+    } else {
+      return <li className="nav-item">
+        <Link
+          to="/login"
+          className="nav-links-mobile"
+          onClick={closeMobileMenu}
+          exact
+        >
+          Login/Signup
+        </Link>
+      </li>
+    }
+  }
+
+  const isLoggedIn = () => {
+    if (localStorage.getItem("token")) {
+      return <Link to="/login" onClick={LogOut}>
+        <button className="nav-login-button">Logout</button>
+      </Link>
+    } else {
+      return <Link to="/login">
+        <button className="nav-login-button">Login/Signup</button>
+      </Link>
+    }
+  }
+
+  const LogOut = () => {
+    localStorage.removeItem("token");
+    toast.success('Logged Out successfully!')
+  }
   return (
     <Fragment>
       <nav className="header-div">
         <NavLink to="/" className="navbar-logo">
-          <img src="./images/hitconnect.png" alt="logo" width="45px" height="45px"/>
+          <img src="./images/hitconnect.png" alt="logo" width="45px" height="45px" />
         </NavLink>
         <div className="menu-icon" onClick={toggleNav}>
           <i className={isNavOpen ? "fas fa-times" : "fas fa-bars"}></i>
@@ -102,20 +147,9 @@ const Header = () => {
               Notice Board
             </NavLink>
           </li>
-          <li className="header-item">
-            <Link
-              to="/login"
-              className="header-links-mobile"
-              onClick={closeMobileMenu}
-              exact
-            >
-              Login/Signup
-            </Link>
-          </li>
+          {isLoggedInMobile()}
         </ul>
-        <Link to="/login">
-          <button className="nav-login-button">Login/Signup</button>
-        </Link>
+        {isLoggedIn()}
       </nav>
     </Fragment>
   );

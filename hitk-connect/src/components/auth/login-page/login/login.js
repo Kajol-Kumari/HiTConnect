@@ -98,7 +98,6 @@ const Login = () => {
   }, [state.username, state.password, hidePassword]);
 
   async function handleLogin () {
-    // change the url accordingly!
     let result = await fetch("http://localhost:8080/user/login", {
       method: 'POST',
       headers: {
@@ -110,38 +109,18 @@ const Login = () => {
     result = await result.json();
     if(result.status === 200){
       localStorage.setItem("token", JSON.stringify(result.token));
-      history.push('/admin');
+      history.push('/registered-user');
       toast.success('Logged In successfully!')
     } else {
       toast.error('Error Occurred!')
     }
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (event.keyCode === 13 || event.which === 13) {
-      state.isButtonDisabled || handleLogin();
-    }
-  };
-
-  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setUsername",
-      payload: event.target.value,
-    });
-  };
-
-  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setPassword",
-      payload: event.target.value,
-    });
-  };
-  return (
-    <div className="login-section">
+  const registeredBlock = () => {
+    if(localStorage.getItem("token")){
+      history.push('/registered-user'); 
+    } else {
+      return <div className="login-section">
       <div className="login-image child1">
         <img
           src="./images/login.png"
@@ -198,6 +177,36 @@ const Login = () => {
           </div>
         </div>
       </div>
+    </div>
+    }
+  }
+
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.keyCode === 13 || event.which === 13) {
+      state.isButtonDisabled || handleLogin();
+    }
+  };
+
+  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: "setUsername",
+      payload: event.target.value,
+    });
+  };
+
+  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch({
+      type: "setPassword",
+      payload: event.target.value,
+    });
+  };
+  return (
+    <div>
+      { registeredBlock() }
     </div>
   );
 };

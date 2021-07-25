@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import Footer from '../../template/footer/footer'
-import HitkTechCommunity from './hitk-tech-community/hitk-tech-community'
-import "./hitk-tech-community-page.css";
+import "./rotaract-details-page.css";
+import RotaractClub from './rotaract-page/rotaract-page';
 
-export default class HitkTechCommunityPage extends Component {
+export default class RotaractClubPage extends Component {
   render() {
     return (
       <div>
-        <HitkTechCommunity />
+        <RotaractClub />
         <div className="hitk-tech-comm-logo">
           <div className="logo">
-            <img src="../../images/hitk-tech-comm/hitk_tech_comm_logo.png" alt="hitk-tech-comm-logo" className="club-logo-img"></img>
+            <img src="../../images/rotaract/rotaract_logo.png" alt="hitk-tech-comm-logo" className="club-logo-img"></img>
           </div>
           <div className="club-name">
-            Hitk Tech Community
+            Rotaract Club of HITK
           </div>
         </div>
         <div className="team-members-wrapper">

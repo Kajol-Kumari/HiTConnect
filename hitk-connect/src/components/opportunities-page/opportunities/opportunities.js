@@ -62,77 +62,83 @@ const Opportunities = () => {
     // write the logic for submission here
   const handleSubmit = () => {
   };
-  return (
-    <div className="opportunity-section">
-      <div className="signup-form">
-        <div className="signup-card">
-          <h1 className="card-heading">New Opportunity!</h1>
-          <div className="inside-card">
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                id="name"
-                type="text"
-                required="required"
-                name="title"
-                placeholder="title"
-                className="inputSignup"
-              />
-              <i className="fas fa-check"></i>
-            </div>
 
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                error={state.isError}
-                id="content"
-                type="text"
-                required="required"
-                name="content"
-                placeholder="description"
-                className="inputSignup"
-              />
-              <i className="fas fa-book"></i>
-            </div>
+  const renderEditBlock = () => {
+    if(localStorage.getItem("token")) {
+      return <div className="signup-form">
+      <div className="signup-card">
+        <h1 className="card-heading">New Opportunity!</h1>
+        <div className="inside-card">
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              id="name"
+              type="text"
+              required="required"
+              name="title"
+              placeholder="title"
+              className="inputSignup"
+            />
+            <i className="fas fa-check"></i>
+          </div>
 
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                id="tag"
-                type="uri"
-                name="link"
-                placeholder="link"
-                className="inputSignup"
-              />
-              <i className="fas fa-link"></i>
-            </div>
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              error={state.isError}
+              id="content"
+              type="text"
+              required="required"
+              name="content"
+              placeholder="description"
+              className="inputSignup"
+            />
+            <i className="fas fa-book"></i>
+          </div>
 
-            <div className="signup-file-input">
-              <input
-                autoComplete="off"
-                id="imgFile"
-                type="file"
-                required="required"
-                name="imgFile"
-                placeholder="Select Image"
-                className="inputSignup"
-              />
-              <i className="fas fa-file"></i>
-            </div>
-            <br />
-            <div className="signup-input" style={{ textAlign: "center" }}>
-              <button
-                id="btn"
-                className="login-btn main-btn main-btn-2"
-                onClick={handleSubmit}
-                disabled={state.isButtonDisabled}
-              >
-                Submit
-              </button>
-            </div>
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              id="tag"
+              type="uri"
+              name="link"
+              placeholder="link"
+              className="inputSignup"
+            />
+            <i className="fas fa-link"></i>
+          </div>
+
+          <div className="signup-file-input">
+            <input
+              autoComplete="off"
+              id="imgFile"
+              type="file"
+              required="required"
+              name="imgFile"
+              placeholder="Select Image"
+              className="inputSignup"
+            />
+            <i className="fas fa-file"></i>
+          </div>
+          <br />
+          <div className="signup-input" style={{ textAlign: "center" }}>
+            <button
+              id="btn"
+              className="login-btn main-btn main-btn-2"
+              onClick={handleSubmit}
+              disabled={state.isButtonDisabled}
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    }
+  }
+  return (
+    <div className="opportunity-section">
+      { renderEditBlock() }
       <div className="login-image">
         <div className="feed-title">
             Opportunities

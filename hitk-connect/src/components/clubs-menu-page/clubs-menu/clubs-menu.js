@@ -11,7 +11,7 @@ function ClubsMenu() {
       </div>
       <div id="allCards">
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/clubs-menu/rotaract-club" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Rotaract</div>
               <div className="card-content">

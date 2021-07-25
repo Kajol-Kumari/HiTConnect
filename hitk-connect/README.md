@@ -30,3 +30,9 @@ yarn start
 ```
 
 Navigate to [http://localhost:3000/](http://localhost:3000/) to see the frontend runing
+
+<!-- Login credentials -->
+```
+email - kajolkumarisingh222@gal.com
+pass - kajol
+```

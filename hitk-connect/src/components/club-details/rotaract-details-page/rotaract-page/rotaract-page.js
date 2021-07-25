@@ -1,13 +1,13 @@
 import { Component } from 'react';
-import "./hitk-tech-community.css";
+import "./rotaract-page.css";
 import Header from '../../../template/header/header';
-export default class HitkTechCommunity extends Component {
+export default class RotaractClub extends Component {
 	render() {
 		return (
 			<div className="hitk-tech-comm-container">
 				<div className="hitk-tech-comm-cover">
 					<Header />
-					<p className="hitk-tech-comm-moto" >For Students, By Students!</p>
+					<p className="hitk-tech-comm-moto" >Broden your Horizon!</p>
 				</div>
 			</div>
 		);

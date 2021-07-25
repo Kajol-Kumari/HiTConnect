@@ -1,0 +1,27 @@
+.hitk-tech-comm-container {
+    background-image: url('https://www.elegantthemes.com/blog/wp-content/uploads/2020/09/community-update-august-2020-scaled.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.hitk-tech-comm-moto {
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    text-align: center;
+    font-weight: bold;
+    color:#125181;
+    font-size: 26px;
+    position: absolute;
+    top: 47%;
+    left: 40%;
+}
+
+@media screen and (max-width: 850px) {
+    .hitk-tech-comm-moto{
+        top: 45%;
+        left: 10%;
+        right: 10%;
+    }
+}

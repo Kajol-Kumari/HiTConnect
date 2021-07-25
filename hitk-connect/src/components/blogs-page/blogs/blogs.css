@@ -21,3 +21,7 @@
 .create-blog {
   padding-bottom: 2rem;
 }
+
+.blog-list {
+  height: 75vh;
+}

@@ -15,6 +15,8 @@ import HitkTechCommunityPage from '../club-details/hitk-tech-community-page/hitk
 import PrivacyPolicyPage from '../privacy-policy-page/privacy-policy-page';
 import TermsOfUsePage from '../terms-of-use-page/terms-of-use-page';
 import GetInvolvedPage from '../get-involved-page/get-involved-page';
+import RotaractClubPage from '../club-details/rotaract-details-page/rotaract-details-page';
+import RegisteredUserPage from '../template/registered-page/registered-page';
 class Main extends Component {
     render() {
         return (
@@ -23,8 +25,10 @@ class Main extends Component {
               <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/login" component={LoginPage} />
+                <Route exact path="/registered-user" component={RegisteredUserPage} />
                 <Route exact path='/clubs-menu' component={ClubsMenuPage} />
                 <Route exact path='/clubs-menu/hitk-tech-community' component={HitkTechCommunityPage} />
+                <Route exact path="/clubs-menu/rotaract-club" component={RotaractClubPage}/>
                 <Route exact path='/signup' component={SignupPage} />
                 <Route exact path='/blogs' component={BlogsPage} />
                 <Route exact path='/create-blog' component = {CreateBlogPage} />

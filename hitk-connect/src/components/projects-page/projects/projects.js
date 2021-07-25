@@ -70,9 +70,10 @@ const Projects = () => {
     // write the logic for submission here
   const handleSubmit = () => {
   };
-  return (
-    <div className="project-section">
-      <div className="signup-form child1">
+
+  const renderEditBlock = () => {
+    if(localStorage.getItem("token")) {
+      return <div className="signup-form child1">
         <div className="signup-card">
           <h1 className="card-heading">Add Project!</h1>
           <div className="inside-card">
@@ -141,6 +142,11 @@ const Projects = () => {
           </div>
         </div>
       </div>
+    }
+  }
+  return (
+    <div className="project-section">
+      { renderEditBlock() }
       <div className="login-image feed-child2">
         <div className="feed-title">
             Projects &nbsp; Showcase

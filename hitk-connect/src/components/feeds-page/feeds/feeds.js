@@ -102,89 +102,95 @@ const Feeds = () => {
       toast.error('Error Occurred!')
     }
   };
-  return (
-    <div className="feedback-section">
-      <div className="feed-form fchild1">
-        <div className="signup-card">
-          <h1 className="card-heading">Create Feed!</h1>
-          <div className="inside-card">
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                id="text"
-                type="text"
-                required="required"
-                name="creator"
-                placeholder="creator"
-                className="inputSignup"
-              />
-              <i className="fas fa-envelope"></i>
-            </div>
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                id="name"
-                type="text"
-                required="required"
-                name="title"
-                placeholder="title"
-                className="inputSignup"
-              />
-              <i className="fas fa-check"></i>
-            </div>
 
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                error={state.isError}
-                id="content"
-                type="text"
-                required="required"
-                name="content"
-                placeholder="Content"
-                className="inputSignup"
-              />
-              <i className="fas fa-book"></i>
-            </div>
+  const renderEditBlock = () => {
+    if(localStorage.getItem("token")) {
+      return <div className="feed-form fchild1">
+      <div className="signup-card">
+        <h1 className="card-heading">Create Feed!</h1>
+        <div className="inside-card">
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              id="text"
+              type="text"
+              required="required"
+              name="creator"
+              placeholder="creator"
+              className="inputSignup"
+            />
+            <i className="fas fa-envelope"></i>
+          </div>
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              id="name"
+              type="text"
+              required="required"
+              name="title"
+              placeholder="title"
+              className="inputSignup"
+            />
+            <i className="fas fa-check"></i>
+          </div>
 
-            <div className="signup-input">
-              <input
-                autoComplete="off"
-                id="tag"
-                type="text"
-                name="tag"
-                placeholder="tag"
-                className="inputSignup"
-              />
-              <i className="fas fa-list"></i>
-            </div>
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              error={state.isError}
+              id="content"
+              type="text"
+              required="required"
+              name="content"
+              placeholder="Content"
+              className="inputSignup"
+            />
+            <i className="fas fa-book"></i>
+          </div>
 
-            <div className="signup-file-input">
-              <input
-                autoComplete="off"
-                id="imgFile"
-                type="file"
-                required="required"
-                name="imgFile"
-                placeholder="Select Image"
-                className="inputSignup"
-              />
-              <i className="fas fa-file"></i>
-            </div>
-            <br />
-            <div className="signup-input" style={{ textAlign: "center" }}>
-              <button
-                id="btn"
-                className="login-btn main-btn main-btn-2"
-                onClick={handleFeedSubmit}
-                disabled={state.isButtonDisabled}
-              >
-                Submit
-              </button>
-            </div>
+          <div className="signup-input">
+            <input
+              autoComplete="off"
+              id="tag"
+              type="text"
+              name="tag"
+              placeholder="tag"
+              className="inputSignup"
+            />
+            <i className="fas fa-list"></i>
+          </div>
+
+          <div className="signup-file-input">
+            <input
+              autoComplete="off"
+              id="imgFile"
+              type="file"
+              required="required"
+              name="imgFile"
+              placeholder="Select Image"
+              className="inputSignup"
+            />
+            <i className="fas fa-file"></i>
+          </div>
+          <br />
+          <div className="signup-input" style={{ textAlign: "center" }}>
+            <button
+              id="btn"
+              className="login-btn main-btn main-btn-2"
+              onClick={handleFeedSubmit}
+              disabled={state.isButtonDisabled}
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    }
+  }
+  return (
+    <div className="feedback-section">
+      { renderEditBlock() }
       <div className="login-image feed-child2">
         <div className="feed-title">
           Feeds
