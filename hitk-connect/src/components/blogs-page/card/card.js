@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import { Modals } from "../../Carousel/Modal/index.js";
+import { Modals } from "../carousel/modal";
 import { Delete, Edit } from "@material-ui/icons";
 import { IconButton } from "@material-ui/core";
 import { useSelector } from "react-redux";

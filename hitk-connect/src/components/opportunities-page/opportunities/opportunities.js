@@ -1,22 +1,29 @@
 import React, { useReducer, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./opportunities.css";
+toast.configure()
 
 //state type
 type State = {
   title: "string",
   content: "string",
-  imgFile: "File",
+  link: "string",
+  data: "string"
 };
 
 const initialState: State = {
   title: "",
   content: "",
-  imgFile: "",
+  link: "",
+  data: []
 };
 
 type Action =
   | { type: "setTitle", payload: string }
   | { type: "setContent", payload: string }
+  | { type: "setLink", payload: string }
+  | { type: "setData", payload: [] }
   | { type: "setIsButtonDisabled", payload: boolean }
   | { type: "opportunitySuccess", payload: string }
   | { type: "opportunityFailed", payload: string }
@@ -27,13 +34,23 @@ const reducer = (state: State, action: Action): State => {
     case "setTitle":
       return {
         ...state,
-        creator: action.payload,
+        title: action.payload,
       };
     case "setContent":
       return {
         ...state,
-        title: action.payload,
+        content: action.payload,
       };
+    case "setLink":
+      return {
+        ...state,
+        link: action.payload,
+      };
+    case "setData":
+      return {
+        ...state,
+        data: action.payload
+      }
     default:
       return {
         ...state,
@@ -43,10 +60,10 @@ const reducer = (state: State, action: Action): State => {
 
 const Opportunities = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  getPosts();
   useEffect(() => {
     // Show/Hide Functionality.
-    if (state.title.trim() && state.content.trim() && state.imgFile) {
+    if (state.title.trim() && state.content.trim() && state.link.trim() && state.data) {
       dispatch({
         type: "setIsButtonDisabled",
         payload: false,
@@ -57,132 +74,152 @@ const Opportunities = () => {
         payload: true,
       });
     }
-  }, [state.creator, state.title, state.content, state.tag, state.imgFile]);
+  }, [state.title, state.content, state.link, state.data]);
 
-    // write the logic for submission here
-  const handleSubmit = () => {
+  async function getPosts() {
+    let result = await fetch("http://localhost:8080/notice/all", {
+      method: 'GET'
+    })
+    result = await result.json();
+    if (result.length >= 0) {
+      dispatch({ type: "setData", payload: result })
+      feedCard();
+    } else {
+      toast.error('Error Occurred!')
+    }
+  }
+
+  // write the logic for submission here
+  async function handleSubmit() {
+    let token = JSON.parse(localStorage.getItem("token"));
+    let result = await fetch("http://localhost:8080/notice/post", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "*/*",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        title: state.title,
+        content: state.content,
+        link: state.link
+      })
+    });
+    result = await result.json();
+    if (result.status === 200) {
+      getPosts();
+      toast.success('Opportunity Added Successfully!');
+    } else {
+      toast.error('Error Occurred!')
+    }
   };
 
+  const feedCard = () => {
+    let cards = [];
+    const data = state.data;
+    for (var i = 0; i < data.length; i++) {
+      cards.push(
+        <div className="feed-card-item">
+          <div className="clickable-card">
+            <div className="card-title">{data[i].title}</div>
+            <div className="card-content">
+              {data[i].content}
+            </div>
+            <div className="more-link">
+              <a href={data[i].link} style={{ color: "#90EE90" }} target="_blank"
+                rel="noopener noreferrer">
+                Register/Find More!
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    }
+    if (cards.length > 0) {
+      return cards;
+    } else {
+      return (<div>
+        <h2>Loading ...</h2>
+      </div>)
+    }
+  }
+
+
   const renderEditBlock = () => {
-    if(localStorage.getItem("token")) {
-      return <div className="signup-form">
-      <div className="signup-card">
-        <h1 className="card-heading">New Opportunity!</h1>
-        <div className="inside-card">
-          <div className="signup-input">
-            <input
-              autoComplete="off"
-              id="name"
-              type="text"
-              required="required"
-              name="title"
-              placeholder="title"
-              className="inputSignup"
-            />
-            <i className="fas fa-check"></i>
-          </div>
+    if (localStorage.getItem("token")) {
+      return <div className="feed-form fchild1">
+        <div className="signup-card">
+          <h1 className="card-heading">New Opportunity!</h1>
+          <div className="inside-card">
+            <div className="signup-input">
+              <input
+                autoComplete="off"
+                id="name"
+                type="text"
+                required="required"
+                name="title"
+                placeholder="title"
+                className="inputSignup"
+                onChange={(event) => { dispatch({ type: "setTitle", payload: event.target.value }) }}
+              />
+              <i className="fas fa-check"></i>
+            </div>
 
-          <div className="signup-input">
-            <input
-              autoComplete="off"
-              error={state.isError}
-              id="content"
-              type="text"
-              required="required"
-              name="content"
-              placeholder="description"
-              className="inputSignup"
-            />
-            <i className="fas fa-book"></i>
-          </div>
+            <div className="signup-input">
+              <input
+                autoComplete="off"
+                error={state.isError}
+                id="content"
+                type="text"
+                required="required"
+                name="content"
+                placeholder="description"
+                className="inputSignup"
+                onChange={(event) => { dispatch({ type: "setContent", payload: event.target.value }) }}
+              />
+              <i className="fas fa-book"></i>
+            </div>
 
-          <div className="signup-input">
-            <input
-              autoComplete="off"
-              id="tag"
-              type="uri"
-              name="link"
-              placeholder="link"
-              className="inputSignup"
-            />
-            <i className="fas fa-link"></i>
-          </div>
-
-          <div className="signup-file-input">
-            <input
-              autoComplete="off"
-              id="imgFile"
-              type="file"
-              required="required"
-              name="imgFile"
-              placeholder="Select Image"
-              className="inputSignup"
-            />
-            <i className="fas fa-file"></i>
-          </div>
-          <br />
-          <div className="signup-input" style={{ textAlign: "center" }}>
-            <button
-              id="btn"
-              className="login-btn main-btn main-btn-2"
-              onClick={handleSubmit}
-              disabled={state.isButtonDisabled}
-            >
-              Submit
-            </button>
+            <div className="signup-input">
+              <input
+                autoComplete="off"
+                id="link"
+                type="text"
+                name="link"
+                placeholder="opportunity URL"
+                className="inputSignup"
+                onChange={(event) => { dispatch({ type: "setLink", payload: event.target.value }) }}
+              />
+              <i className="fas fa-link"></i>
+            </div>
+            <br />
+            <div className="signup-input" style={{ textAlign: "center" }}>
+              <button
+                id="btn"
+                className="login-btn main-btn main-btn-2"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     }
   }
   return (
     <div className="opportunity-section">
-      { renderEditBlock() }
-      <div className="login-image">
+      {renderEditBlock()}
+      <div className="login-image feed-child2">
         <div className="feed-title">
-            Opportunities
-        </div>
+          Opportunities
         </div>
         <div className="feed-list-card-wrapper">
-          <div className="feed-card-item">
-            <div className="clickable-card">
-              <div className="card-title">Ghunghroo</div>
-              <img src="./images/login.png" alt="dummy_img" />
-              <div className="card-content">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </div>
-            </div>
-          </div>
-
-          <div className="feed-card-item">
-            <div className="clickable-card">
-              <div className="card-title">Ghunghroo</div>
-              <img src="./images/login.png" alt="dummy_img" />
-              <div className="card-content">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </div>
-            </div>
-          </div>
-
-          <div className="feed-card-item">
-            <div className="clickable-card">
-              <div className="card-title">Ghunghroo</div>
-              <img src="./images/login.png" alt="dummy_img" />
-              <div className="card-content">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </div>
-            </div>
+          <div className="card-wrapper">
+            {feedCard()}
           </div>
         </div>
+      </div>
     </div>
   );
 };

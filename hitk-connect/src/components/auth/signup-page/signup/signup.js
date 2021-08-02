@@ -126,7 +126,7 @@ const Signup = () => {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({"email": state.email, name: state.name, password:state.password})
+      body: JSON.stringify({email: state.email, name: state.name, password:state.password})
     });
     result = await result.json();
     if(result.status === 200){

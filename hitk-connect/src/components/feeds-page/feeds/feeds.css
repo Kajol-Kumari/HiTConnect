@@ -66,3 +66,13 @@
   background-position: left center;
   transition: background 0.3s ease-out;
 }
+
+.more-link {
+  cursor: pointer;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -7,7 +7,7 @@ export default class RotaractClub extends Component {
 			<div className="hitk-tech-comm-container">
 				<div className="hitk-tech-comm-cover">
 					<Header />
-					<p className="hitk-tech-comm-moto" >Broden your Horizon!</p>
+					<p className="hitk-tech-comm-moto" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Broden your Horizon!</p>
 				</div>
 			</div>
 		);

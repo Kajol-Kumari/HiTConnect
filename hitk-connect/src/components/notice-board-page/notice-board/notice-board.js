@@ -4,7 +4,7 @@ import "./notice-board.css";
 export default class NoticeBoard extends Component {
   render() {
     return (
-      <div class="notice-board-div">
+      <div className="notice-board-div">
         <div className="notice-board-img">
             Notice Board
         </div>

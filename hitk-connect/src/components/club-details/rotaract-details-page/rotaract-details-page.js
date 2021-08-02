@@ -21,7 +21,36 @@ export default class RotaractClubPage extends Component {
             Team!
           </div>
           <div className="team-member-detail">
-            
+            <div className="member-card">
+              <img src="./images/profile.png" alt="dummy_img" width="200" height="200" />
+              <div className="member-card-title">Malisha Ghosh</div>
+              <div className="social-icons">
+                <a href="https://www.linkedin.com/in/kajol-kumari-73245b166/" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-linkedin" aria-hidden="true"></i>
+                </a> &nbsp;
+                <a href="https://github.com/Kajol-Kumari" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-github" aria-hidden="true"></i>
+                </a> &nbsp;
+                <a href="kajolkumarisingh222@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <i className="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div className="member-card">
+              <img src="./images/profile.png" alt="dummy_img" width="200" height="200" />
+              <div className="member-card-title">Pranav Singh</div>
+              <div className="social-icons">
+                <a href="https://www.linkedin.com/in/kajol-kumari-73245b166/" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-linkedin" aria-hidden="true"></i>
+                </a> &nbsp;
+                <a href="https://github.com/Kajol-Kumari" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-github" aria-hidden="true"></i>
+                </a> &nbsp;
+                <a href="kajolkumarisingh222@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <i className="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <Footer />

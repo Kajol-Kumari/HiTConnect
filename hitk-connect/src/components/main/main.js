@@ -17,6 +17,8 @@ import TermsOfUsePage from '../terms-of-use-page/terms-of-use-page';
 import GetInvolvedPage from '../get-involved-page/get-involved-page';
 import RotaractClubPage from '../club-details/rotaract-details-page/rotaract-details-page';
 import RegisteredUserPage from '../template/registered-page/registered-page';
+import GhunghrooPage from '../club-details/ghughroo-page/ghughroo-page';
+import NssPage from '../club-details/nss-page/nss-page';
 class Main extends Component {
     render() {
         return (
@@ -27,8 +29,10 @@ class Main extends Component {
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/registered-user" component={RegisteredUserPage} />
                 <Route exact path='/clubs-menu' component={ClubsMenuPage} />
-                <Route exact path='/clubs-menu/hitk-tech-community' component={HitkTechCommunityPage} />
-                <Route exact path="/clubs-menu/rotaract-club" component={RotaractClubPage}/>
+                <Route exact path='/hitk-tech-community' component={HitkTechCommunityPage} />
+                <Route exact path="/rotaract-club" component={RotaractClubPage}/>
+                <Route exact path="/ghunghroo" component={GhunghrooPage}/>
+                <Route exact path="/nss" component={NssPage} />
                 <Route exact path='/signup' component={SignupPage} />
                 <Route exact path='/blogs' component={BlogsPage} />
                 <Route exact path='/create-blog' component = {CreateBlogPage} />
