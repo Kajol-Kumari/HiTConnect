@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect, useState, useRef } from "react";
 import "./signup.css";
 import { useHistory } from "react-router-dom";
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
@@ -53,11 +53,11 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         password: action.payload,
       };
-      case "setConfirmPassword":
-        return {
-          ...state,
-          confirmpassword: action.payload,
-        };
+    case "setConfirmPassword":
+      return {
+        ...state,
+        confirmpassword: action.payload,
+      };
     case "setIsButtonDisabled":
       return {
         ...state,
@@ -102,9 +102,9 @@ const Signup = () => {
       ? (passwordInput.current = "text")
       : (passwordInput.current = "password");
 
-      hideConfirmPassword
-        ? (confirmPasswordInput.current = "text")
-        : (confirmPasswordInput.current = "password");
+    hideConfirmPassword
+      ? (confirmPasswordInput.current = "text")
+      : (confirmPasswordInput.current = "password");
     if (state.email.trim() && state.name.trim() && state.password.trim() && state.confirmpassword.trim()) {
       dispatch({
         type: "setIsButtonDisabled",
@@ -115,26 +115,35 @@ const Signup = () => {
         type: "setIsButtonDisabled",
         payload: true,
       });
-      }
+    }
   }, [state.email, state.name, state.password, hidePassword, state.confirmpassword, hideConfirmPassword]);
 
   async function handleSignup() {
-    if(state.password === state.confirmpassword){
-      let result = await fetch("http://localhost:8080/auth/register", {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({email: state.email, name: state.name, password:state.password})
-    });
-    result = await result.json();
-    if(result.status === 200){
-      toast.success('Registration Successful!')
-      history.push('/login');
-    } else {
-      toast.error('Already Registered!')
-    }
+    if (state.password === state.confirmpassword) {
+      const regex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu\.in$");
+      if (regex.test(state.email)) {
+        let result = await fetch("http://localhost:8080/auth/register", {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ email: state.email, name: state.name, password: state.password })
+        });
+        result = await result.json();
+        if (result.status === 200) {
+          toast.success('Registration Successful!')
+          history.push('/login');
+        } else {
+          toast.error('Already Registered!')
+        }
+      } else {
+        dispatch({
+          type: "loginFailed",
+          payload: "Incorrect name or password",
+        });
+        toast.error('Email should be your heritage Email!')
+      }
     } else {
       dispatch({
         type: "loginFailed",
@@ -175,7 +184,7 @@ const Signup = () => {
       type: "setPassword",
       payload: event.target.value,
     });
-  };const handleConfirmPasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
+  }; const handleConfirmPasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
     dispatch({
@@ -259,7 +268,7 @@ const Signup = () => {
                 onClick={() => setHideConfirmPassword(!hideConfirmPassword)}
               ></i>
             </div>
-            <div className="signup-input" style={{ textAlign: "center" , marginTop: "-20px"}}>
+            <div className="signup-input" style={{ textAlign: "center", marginTop: "-20px" }}>
               Already have an account? <a href="/login">Log In</a> here!!
             </div> <br />
             <div className="signup-input" style={{ textAlign: "center" }}>

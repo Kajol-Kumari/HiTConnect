@@ -19,6 +19,14 @@ import RotaractClubPage from '../club-details/rotaract-details-page/rotaract-det
 import RegisteredUserPage from '../template/registered-page/registered-page';
 import GhunghrooPage from '../club-details/ghughroo-page/ghughroo-page';
 import NssPage from '../club-details/nss-page/nss-page';
+import GamePage from '../club-details/game-page/game-page';
+import SciencePage from '../club-details/science-page/science-page';
+import PravasanaPage from '../club-details/pravasana-page/pravasana-page';
+import DSCPage from '../club-details/dsc-page/dsc-page';
+import GeeksUnitedPage from '../club-details/geeks-united-page/geeks-united-page';
+import SportsPage from '../club-details/sports-page/sports-page';
+import YogaPage from '../club-details/yoga-page/yoga-page';
+import QuizPage from '../club-details/quiz-page/quiz-page';
 class Main extends Component {
     render() {
         return (
@@ -33,6 +41,14 @@ class Main extends Component {
                 <Route exact path="/rotaract-club" component={RotaractClubPage}/>
                 <Route exact path="/ghunghroo" component={GhunghrooPage}/>
                 <Route exact path="/nss" component={NssPage} />
+                <Route exact path="/game-club" component={GamePage} />
+                <Route exact path="/science-club" component={SciencePage} />
+                <Route exact path="/pravasana" component={PravasanaPage} />
+                <Route exact path="/dsc" component={DSCPage} />
+                <Route exact path="/geeks-united" component={GeeksUnitedPage} />
+                <Route exact path="/sports" component={SportsPage} />
+                <Route exact path="/yoga" component={YogaPage} />
+                <Route exact path="/quiz" component={QuizPage} />
                 <Route exact path='/signup' component={SignupPage} />
                 <Route exact path='/blogs' component={BlogsPage} />
                 <Route exact path='/create-blog' component = {CreateBlogPage} />

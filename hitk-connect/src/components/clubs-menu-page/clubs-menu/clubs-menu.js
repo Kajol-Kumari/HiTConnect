@@ -51,7 +51,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/game-club" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Gaming Club</div>
               <div className="card-content">
@@ -61,7 +61,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/science-club" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Science Club</div>
               <div className="card-content">
@@ -71,7 +71,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/pravasana" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Pravasana</div>
               <div className="card-content">
@@ -81,7 +81,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/dsc" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">DSC</div>
               <div className="card-content">
@@ -91,17 +91,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
-            <div className="clickable-card">
-              <div className="card-title">Drama Club</div>
-              <div className="card-content">
-              Is Drama your passion? Then, this is the club for you! It will help you to showcase your drama talent in college as well as state level!
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/geeks-united" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Geeks United</div>
               <div className="card-content">
@@ -111,17 +101,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
-            <div className="clickable-card">
-              <div className="card-title">Heritage Utsav</div>
-              <div className="card-content">
-                Want to organise a fest? Join us and we will guide you with management and everything!
-              </div>
-            </div>
-          </a>
-        </div>
-        <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/sports" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Sports Club</div>
               <div className="card-content">
@@ -131,7 +111,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/yoga" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Yoga Club</div>
               <div className="card-content">
@@ -141,7 +121,7 @@ function ClubsMenu() {
           </a>
         </div>
         <div className="card-item">
-          <a href="/" rel="noopener noreferrer">
+          <a href="/quiz" rel="noopener noreferrer">
             <div className="clickable-card">
               <div className="card-title">Quiz Club</div>
               <div className="card-content">
